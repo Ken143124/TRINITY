@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClearPath Exam Check</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="inner">
+      <p class="eyebrow">ClearPath · CST 9/L Final Project</p>
+      <h1>How ready are your habits for a 70+ exam score?</h1>
+      <p class="lead">Enter a typical week. A decision tree trained on 7,000 student records estimates your chance of scoring 70 or higher and shows the questions it asked. Everything runs in your browser and nothing is sent anywhere.</p>
+    </div>
+  </header>
+
+  <main class="inner">
+    <div class="layout">
+      <section class="card" aria-labelledby="form-title">
+        <h2 id="form-title">Your typical week</h2>
+        <form id="habit-form" novalidate>
+          <div id="fields"></div>
+          <div class="actions">
+            <button type="submit" class="primary">Check my readiness</button>
+            <button type="button" id="reset" class="secondary">Reset to class median</button>
+          </div>
+          <p id="form-errors" class="errors" role="alert" hidden></p>
+        </form>
+      </section>
+
+      <section class="card result" id="result" aria-live="polite" aria-labelledby="result-title">
+        <h2 id="result-title">Result</h2>
+        <div id="result-body">
+          <p class="placeholder">Press <strong>Check my readiness</strong> to see your estimate.</p>
+        </div>
+      </section>
+    </div>
+
+    <section class="card" aria-labelledby="model-title">
+      <h2 id="model-title">About the model</h2>
+      <div class="grid3">
+        <div>
+          <h3>Algorithm</h3>
+          <p>Supervised learning: a Decision Tree Classifier in a scikit-learn pipeline (StandardScaler, then tree), trained in Google Colab and exported to <code>model.js</code>.</p>
+        </div>
+        <div>
+          <h3>Measured results</h3>
+          <dl id="metrics" class="metrics"></dl>
+        </div>
+        <div>
+          <h3>Limits to keep in mind</h3>
+          <ul>
+            <li>The sample data looks simulated and is not real student data.</li>
+            <li>Patterns are associations, not causes.</li>
+            <li>Use it to start a conversation about support. Never to grade, rank or label a student.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="inner">Academic prototype for CST 9/L, UM Tagum College. The exam score is not a model input because the dataset label is defined by it.</footer>
+
+  <script src="model.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
